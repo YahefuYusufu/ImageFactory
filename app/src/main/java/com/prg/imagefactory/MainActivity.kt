@@ -4,7 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.prg.imagefactory.ui.theme.ImageFactoryTheme
+import com.prg.presentation.home_screen.HomeScreen
+import com.prg.presentation.home_screen.HomeViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,7 +15,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ImageFactoryTheme {
-
+                val viewModel = viewModel<HomeViewModel>()
+                HomeScreen(images = viewModel.images)
             }
         }
     }
