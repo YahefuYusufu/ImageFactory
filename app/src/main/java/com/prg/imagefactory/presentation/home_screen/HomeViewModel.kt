@@ -1,16 +1,18 @@
-package com.prg.presentation.home_screen
+package com.prg.imagefactory.presentation.home_screen
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.prg.imagefactory.data.remote.dto.UnsplashImageDto
 import com.prg.imagefactory.di.AppModule
 import kotlinx.coroutines.launch
 
 class HomeViewModel: ViewModel() {
 
-    var images: String by mutableStateOf("")
+    var images: List<UnsplashImageDto> by mutableStateOf(emptyList())
+        private set
 
     init {
         getImages()

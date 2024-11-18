@@ -1,14 +1,17 @@
 package com.prg.imagefactory.di
 
+import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.prg.imagefactory.data.remote.UnsplashAPIService
 import com.prg.imagefactory.data.util.Constants
+import kotlinx.serialization.json.Json
+import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
-import retrofit2.converter.scalars.ScalarsConverterFactory
 
 object AppModule {
-
+    val contentType = "application/json".toMediaType()
+    val json = Json { ignoreUnknownKeys = true}
     private val retrofit = Retrofit.Builder()
-        .addConverterFactory(ScalarsConverterFactory.create())
+        .addConverterFactory(json.asConverterFactory(contentType))
         .baseUrl(Constants.BASE_URL)
         .build()
 
