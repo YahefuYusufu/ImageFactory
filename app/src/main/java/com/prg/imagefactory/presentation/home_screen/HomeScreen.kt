@@ -1,27 +1,18 @@
 package com.prg.imagefactory.presentation.home_screen
 
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.ui.Modifier
 import com.prg.imagefactory.domain.model.UnsplashImage
-import com.prg.imagefactory.presentation.component.ImageCard
+import com.prg.imagefactory.presentation.component.ImagesVerticalGrid
 
 
 @Composable
 fun HomeScreen(
-    images: List<UnsplashImage>
+    images: List<UnsplashImage>,
+    onImageClick: (String) -> Unit
 ) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState())
-    ) {
-        images.forEach { image ->
-            ImageCard(image = image)
-        }
-    }
+    ImagesVerticalGrid(
+        images = images,
+        onImageClick = onImageClick
+    )
 }
