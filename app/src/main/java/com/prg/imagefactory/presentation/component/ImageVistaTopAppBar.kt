@@ -22,7 +22,7 @@ import androidx.compose.ui.text.withStyle
 fun ImageVistaTopAppBar(
     modifier: Modifier = Modifier,
     scrollBehavior: TopAppBarScrollBehavior,
-    title: String = "Image Vista",
+    title: String = "Image Factory",
     onSearchClick: () -> Unit = {}
 ) {
     CenterAlignedTopAppBar(

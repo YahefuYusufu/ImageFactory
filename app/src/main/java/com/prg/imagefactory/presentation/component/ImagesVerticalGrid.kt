@@ -19,7 +19,7 @@ fun ImagesVerticalGrid(
 ) {
     LazyVerticalStaggeredGrid(
         modifier = modifier,
-        columns = StaggeredGridCells.Adaptive(120.dp),
+        columns = StaggeredGridCells.Adaptive(140.dp),
         contentPadding = PaddingValues(10.dp),
         verticalItemSpacing = 10.dp,
         horizontalArrangement = Arrangement.spacedBy(10.dp)

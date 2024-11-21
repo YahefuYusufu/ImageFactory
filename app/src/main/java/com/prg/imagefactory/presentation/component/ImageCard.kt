@@ -22,7 +22,6 @@ fun ImageCard(
     modifier: Modifier = Modifier,
     image: UnsplashImage?
 ) {
-
     val imageRequest = ImageRequest.Builder(LocalContext.current)
         .data(image?.imageUrlSmall)
         .crossfade(true)
@@ -30,7 +29,6 @@ fun ImageCard(
     val aspectRatio: Float by remember {
         derivedStateOf { (image?.width?.toFloat() ?: 1f) / (image?.height?.toFloat() ?: 1f) }
     }
-
 
     Card(
         shape = RoundedCornerShape(10.dp),
