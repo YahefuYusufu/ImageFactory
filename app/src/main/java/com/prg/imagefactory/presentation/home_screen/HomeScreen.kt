@@ -49,7 +49,7 @@ fun HomeScreen(
             modifier = Modifier
                 .align(Alignment.BottomEnd)
                 .padding(24.dp),
-            onClick = {onFABClick}
+            onClick = {onFABClick()}
         ) {
             Icon(
                 painter = painterResource(R.drawable.icon_ic),

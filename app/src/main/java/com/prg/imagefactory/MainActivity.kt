@@ -11,10 +11,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.compose.rememberNavController
 import com.prg.imagefactory.ui.theme.ImageFactoryTheme
-import com.prg.imagefactory.presentation.home_screen.HomeScreen
-import com.prg.imagefactory.presentation.home_screen.HomeViewModel
+import com.prg.imagefactory.presentation.navigation.NavGraphSetup
 
 class MainActivity : ComponentActivity() {
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -24,19 +23,17 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ImageFactoryTheme {
+                val navController = rememberNavController()
                 val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
-                val viewModel = viewModel<HomeViewModel>()
                 Scaffold(
                     modifier = Modifier
                         .fillMaxSize()
                         .nestedScroll(scrollBehavior.nestedScrollConnection)
                 ) {
-                    HomeScreen(
-                        scrollBehavior = scrollBehavior,
-                        images = viewModel.images,
-                        onImageClick = {},
-                        onSearchClick = {},
-                        onFABClick = {}
+                    NavGraphSetup(
+                        navController = navController,
+                        scrollBehavior = scrollBehavior
+
                     )
                 }
             }
